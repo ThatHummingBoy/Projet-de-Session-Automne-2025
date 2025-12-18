@@ -16,7 +16,7 @@ namespace Projet_de_Session.Presenter
         event EventHandler ModifierAutoYClique;
         event EventHandler EffacerGraphiqueClique;
 
-        void AjouterVecteur(decimal coordonne_i, decimal coordonne_j);
+        void AjouterVecteur(decimal coordonne_i, decimal coordonne_j, string nom_vecteur);
         void ModifierMinX(double xmin, double xmax);
         void ModifierMaxX(double xmin, double xmax);
         void ModifierMinY(double xmin, double xmax);
@@ -24,5 +24,6 @@ namespace Projet_de_Session.Presenter
         void ModifierAutoX();
         void ModifierAutoY();
         void EffacerGraphique();
+        void Refresh();
     }
 }

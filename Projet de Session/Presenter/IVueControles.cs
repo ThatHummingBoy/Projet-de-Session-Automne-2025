@@ -16,6 +16,7 @@ namespace Projet_de_Session.Presenter
         event EventHandler ChangerValeurMaxX;
         event EventHandler ChangerValeurMinY;
         event EventHandler ChangerValeurMaxY;
+        event EventHandler EffacerGraphiqueClique;
 
         decimal LectureIVecteur();
         decimal LectureJVecteur();
@@ -32,5 +33,9 @@ namespace Projet_de_Session.Presenter
         int LectureIndexVecteurYSelectionnerAddSous();
         int LectureIndexVecteurXSelectionnerProduit();
         int LectureIndexVecteurYSelectionnerProduit();
+        bool LectureAutoX();
+        bool LectureAutoY();
+        void AjouterEntrerListe(string nouv_nom);
+        void AfficherProduit(decimal produit);
     }
 }

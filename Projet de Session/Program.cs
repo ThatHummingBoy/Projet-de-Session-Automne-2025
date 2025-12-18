@@ -30,7 +30,7 @@ namespace Projet_de_Session
                 formControles,
                 formGraphique);
 
-            Application.Run(new MultiFormContext(new FormControles(), new FormGraphique()));
+            Application.Run(new MultiFormContext(formControles, formGraphique));
         }
     }
 

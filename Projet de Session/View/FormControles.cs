@@ -13,13 +13,14 @@ namespace Projet_de_Session
 {
     public partial class FormControles : Form, IVueControles
     {
-       public EventHandler AjouterVecteurClique;
-       public EventHandler CalculerAddSousClique;
-       public EventHandler CalculerProduitClique;
-       public EventHandler ChangerValeurMinX;
-       public EventHandler ChangerValeurMaxX;
-       public EventHandler ChangerValeurMinY;
-       public EventHandler ChangerValeurMaxY;
+       public event EventHandler AjouterVecteurClique;
+       public event EventHandler CalculerAddSousClique;
+       public event EventHandler CalculerProduitClique;
+       public event EventHandler ChangerValeurMinX;
+       public event EventHandler ChangerValeurMaxX;
+       public event EventHandler ChangerValeurMinY;
+       public event EventHandler ChangerValeurMaxY;
+       public event EventHandler EffacerGraphiqueClique;
 
         public FormControles()
         {
@@ -58,6 +59,11 @@ namespace Projet_de_Session
             numericUpDownGraphiqueYmax.ValueChanged += (s, e) =>
             {
                 ChangerValeurMaxY?.Invoke(this, EventArgs.Empty);
+            };
+
+            buttonEffacerGraphique.Click += (s, e) =>
+            {
+                EffacerGraphiqueClique?.Invoke(this, EventArgs.Empty);
             };
         }
 
@@ -156,6 +162,32 @@ namespace Projet_de_Session
         public decimal LectureMaxY()
         {
             return numericUpDownGraphiqueYmax.Value;
+        }
+
+        public bool LectureAutoX()
+        {
+            return checkBoxGraphiqueAutoSizeX.Checked;
+        }
+
+        public bool LectureAutoY()
+        {
+            return checkBoxGraphiqueAutoSizeY.Checked;
+        }
+
+        public void AjouterEntrerListe(string nouv_nom)
+        {
+            comboBoxXAddSous.Items.Add(nouv_nom);
+            comboBoxYAddSous.Items.Add(nouv_nom);
+            comboBoxXProduit.Items.Add(nouv_nom);
+            comboBoxYProduit.Items.Add(nouv_nom);
+        }
+
+        public void AfficherProduit(decimal produit)
+        {
+            if (radioButtonScalaire.Checked)
+                textBoxResultatProduit.Text = (produit).ToString();
+            else if (radioButtonVectoriel.Checked)
+                textBoxResultatProduit.Text = $"{produit} k";
         }
     }
 }

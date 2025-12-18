@@ -42,7 +42,6 @@
             this.buttonCalculerAddSous = new System.Windows.Forms.Button();
             this.radioButtonSous = new System.Windows.Forms.RadioButton();
             this.radioButtonAddition = new System.Windows.Forms.RadioButton();
-            this.labelResltatAddSous = new System.Windows.Forms.Label();
             this.labelYCalculAddSous = new System.Windows.Forms.Label();
             this.labelXCalculAddSous = new System.Windows.Forms.Label();
             this.comboBoxYAddSous = new System.Windows.Forms.ComboBox();
@@ -57,7 +56,6 @@
             this.buttonCalculerProduit = new System.Windows.Forms.Button();
             this.radioButtonScalaire = new System.Windows.Forms.RadioButton();
             this.radioButtonVectoriel = new System.Windows.Forms.RadioButton();
-            this.labelResultatProduit = new System.Windows.Forms.Label();
             this.labelYCalculProduit = new System.Windows.Forms.Label();
             this.labelXCalculProduit = new System.Windows.Forms.Label();
             this.comboBoxXProduit = new System.Windows.Forms.ComboBox();
@@ -66,8 +64,6 @@
             this.labelXProduit = new System.Windows.Forms.Label();
             this.tabPageGraphique = new System.Windows.Forms.TabPage();
             this.buttonEffacerGraphique = new System.Windows.Forms.Button();
-            this.checkBoxGraphiqueAutoSizeY = new System.Windows.Forms.CheckBox();
-            this.checkBoxGraphiqueAutoSizeX = new System.Windows.Forms.CheckBox();
             this.numericUpDownGraphiqueYmax = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownGraphiqueXmax = new System.Windows.Forms.NumericUpDown();
             this.labelGraphiqueYA = new System.Windows.Forms.Label();
@@ -76,6 +72,10 @@
             this.labelGraphiqueY = new System.Windows.Forms.Label();
             this.numericUpDownGraphiqueXmin = new System.Windows.Forms.NumericUpDown();
             this.labelGraphiqueX = new System.Windows.Forms.Label();
+            this.checkBoxGraphiqueAutoSizeY = new System.Windows.Forms.CheckBox();
+            this.checkBoxGraphiqueAutoSizeX = new System.Windows.Forms.CheckBox();
+            this.labelResltatAddSous = new System.Windows.Forms.Label();
+            this.textBoxResultatProduit = new System.Windows.Forms.TextBox();
             this.tabControlVecteurs.SuspendLayout();
             this.tabPageVecteurs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownJ)).BeginInit();
@@ -250,16 +250,6 @@
             this.radioButtonAddition.Text = "+";
             this.radioButtonAddition.UseVisualStyleBackColor = true;
             // 
-            // labelResltatAddSous
-            // 
-            this.labelResltatAddSous.AutoSize = true;
-            this.labelResltatAddSous.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.labelResltatAddSous.Location = new System.Drawing.Point(108, 76);
-            this.labelResltatAddSous.Name = "labelResltatAddSous";
-            this.labelResltatAddSous.Size = new System.Drawing.Size(36, 15);
-            this.labelResltatAddSous.TabIndex = 13;
-            this.labelResltatAddSous.Text = "( i , j )";
-            // 
             // labelYCalculAddSous
             // 
             this.labelYCalculAddSous.AutoSize = true;
@@ -375,10 +365,10 @@
             // tabPageProduit
             // 
             this.tabPageProduit.AccessibleName = "";
+            this.tabPageProduit.Controls.Add(this.textBoxResultatProduit);
             this.tabPageProduit.Controls.Add(this.buttonCalculerProduit);
             this.tabPageProduit.Controls.Add(this.radioButtonScalaire);
             this.tabPageProduit.Controls.Add(this.radioButtonVectoriel);
-            this.tabPageProduit.Controls.Add(this.labelResultatProduit);
             this.tabPageProduit.Controls.Add(this.labelYCalculProduit);
             this.tabPageProduit.Controls.Add(this.labelXCalculProduit);
             this.tabPageProduit.Controls.Add(this.comboBoxXProduit);
@@ -424,16 +414,6 @@
             this.radioButtonVectoriel.TabStop = true;
             this.radioButtonVectoriel.Text = "⨉";
             this.radioButtonVectoriel.UseVisualStyleBackColor = true;
-            // 
-            // labelResultatProduit
-            // 
-            this.labelResultatProduit.AutoSize = true;
-            this.labelResultatProduit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.labelResultatProduit.Location = new System.Drawing.Point(102, 76);
-            this.labelResultatProduit.Name = "labelResultatProduit";
-            this.labelResultatProduit.Size = new System.Drawing.Size(51, 15);
-            this.labelResultatProduit.TabIndex = 23;
-            this.labelResultatProduit.Text = "( i , j ) / z";
             // 
             // labelYCalculProduit
             // 
@@ -495,7 +475,6 @@
             // 
             this.tabPageGraphique.Controls.Add(this.buttonEffacerGraphique);
             this.tabPageGraphique.Controls.Add(this.checkBoxGraphiqueAutoSizeY);
-            this.tabPageGraphique.Controls.Add(this.checkBoxGraphiqueAutoSizeX);
             this.tabPageGraphique.Controls.Add(this.numericUpDownGraphiqueYmax);
             this.tabPageGraphique.Controls.Add(this.numericUpDownGraphiqueXmax);
             this.tabPageGraphique.Controls.Add(this.labelGraphiqueYA);
@@ -504,6 +483,7 @@
             this.tabPageGraphique.Controls.Add(this.labelGraphiqueY);
             this.tabPageGraphique.Controls.Add(this.numericUpDownGraphiqueXmin);
             this.tabPageGraphique.Controls.Add(this.labelGraphiqueX);
+            this.tabPageGraphique.Controls.Add(this.checkBoxGraphiqueAutoSizeX);
             this.tabPageGraphique.Location = new System.Drawing.Point(4, 22);
             this.tabPageGraphique.Name = "tabPageGraphique";
             this.tabPageGraphique.Padding = new System.Windows.Forms.Padding(3);
@@ -521,30 +501,6 @@
             this.buttonEffacerGraphique.TabIndex = 19;
             this.buttonEffacerGraphique.Text = "Effacer graphique";
             this.buttonEffacerGraphique.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxGraphiqueAutoSizeY
-            // 
-            this.checkBoxGraphiqueAutoSizeY.AutoSize = true;
-            this.checkBoxGraphiqueAutoSizeY.Checked = true;
-            this.checkBoxGraphiqueAutoSizeY.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxGraphiqueAutoSizeY.Location = new System.Drawing.Point(30, 81);
-            this.checkBoxGraphiqueAutoSizeY.Name = "checkBoxGraphiqueAutoSizeY";
-            this.checkBoxGraphiqueAutoSizeY.Size = new System.Drawing.Size(114, 17);
-            this.checkBoxGraphiqueAutoSizeY.TabIndex = 18;
-            this.checkBoxGraphiqueAutoSizeY.Text = "Ajuster Auto. axe y";
-            this.checkBoxGraphiqueAutoSizeY.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxGraphiqueAutoSizeX
-            // 
-            this.checkBoxGraphiqueAutoSizeX.AutoSize = true;
-            this.checkBoxGraphiqueAutoSizeX.Checked = true;
-            this.checkBoxGraphiqueAutoSizeX.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxGraphiqueAutoSizeX.Location = new System.Drawing.Point(30, 58);
-            this.checkBoxGraphiqueAutoSizeX.Name = "checkBoxGraphiqueAutoSizeX";
-            this.checkBoxGraphiqueAutoSizeX.Size = new System.Drawing.Size(114, 17);
-            this.checkBoxGraphiqueAutoSizeX.TabIndex = 17;
-            this.checkBoxGraphiqueAutoSizeX.Text = "Ajuster Auto. axe x";
-            this.checkBoxGraphiqueAutoSizeX.UseVisualStyleBackColor = true;
             // 
             // numericUpDownGraphiqueYmax
             // 
@@ -628,6 +584,48 @@
             this.labelGraphiqueX.TabIndex = 9;
             this.labelGraphiqueX.Text = "x :";
             // 
+            // checkBoxGraphiqueAutoSizeY
+            // 
+            this.checkBoxGraphiqueAutoSizeY.AutoSize = true;
+            this.checkBoxGraphiqueAutoSizeY.Checked = true;
+            this.checkBoxGraphiqueAutoSizeY.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxGraphiqueAutoSizeY.Location = new System.Drawing.Point(30, 81);
+            this.checkBoxGraphiqueAutoSizeY.Name = "checkBoxGraphiqueAutoSizeY";
+            this.checkBoxGraphiqueAutoSizeY.Size = new System.Drawing.Size(114, 17);
+            this.checkBoxGraphiqueAutoSizeY.TabIndex = 18;
+            this.checkBoxGraphiqueAutoSizeY.Text = "Ajuster Auto. axe y";
+            this.checkBoxGraphiqueAutoSizeY.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxGraphiqueAutoSizeX
+            // 
+            this.checkBoxGraphiqueAutoSizeX.AutoSize = true;
+            this.checkBoxGraphiqueAutoSizeX.Checked = true;
+            this.checkBoxGraphiqueAutoSizeX.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxGraphiqueAutoSizeX.Location = new System.Drawing.Point(30, 58);
+            this.checkBoxGraphiqueAutoSizeX.Name = "checkBoxGraphiqueAutoSizeX";
+            this.checkBoxGraphiqueAutoSizeX.Size = new System.Drawing.Size(114, 17);
+            this.checkBoxGraphiqueAutoSizeX.TabIndex = 17;
+            this.checkBoxGraphiqueAutoSizeX.Text = "Ajuster Auto. axe x";
+            this.checkBoxGraphiqueAutoSizeX.UseVisualStyleBackColor = true;
+            // 
+            // labelResltatAddSous
+            // 
+            this.labelResltatAddSous.AutoSize = true;
+            this.labelResltatAddSous.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.labelResltatAddSous.Location = new System.Drawing.Point(108, 76);
+            this.labelResltatAddSous.Name = "labelResltatAddSous";
+            this.labelResltatAddSous.Size = new System.Drawing.Size(36, 15);
+            this.labelResltatAddSous.TabIndex = 13;
+            this.labelResltatAddSous.Text = "( i , j )";
+            // 
+            // textBoxResultatProduit
+            // 
+            this.textBoxResultatProduit.Location = new System.Drawing.Point(102, 75);
+            this.textBoxResultatProduit.Name = "textBoxResultatProduit";
+            this.textBoxResultatProduit.ReadOnly = true;
+            this.textBoxResultatProduit.Size = new System.Drawing.Size(55, 20);
+            this.textBoxResultatProduit.TabIndex = 27;
+            // 
             // FormControles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -683,12 +681,10 @@
         private System.Windows.Forms.Label labelXCalculAddSous;
         private System.Windows.Forms.RadioButton radioButtonSous;
         private System.Windows.Forms.RadioButton radioButtonAddition;
-        private System.Windows.Forms.Label labelResltatAddSous;
         private System.Windows.Forms.Button buttonCalculerAddSous;
         private System.Windows.Forms.Button buttonCalculerProduit;
         private System.Windows.Forms.RadioButton radioButtonScalaire;
         private System.Windows.Forms.RadioButton radioButtonVectoriel;
-        private System.Windows.Forms.Label labelResultatProduit;
         private System.Windows.Forms.Label labelYCalculProduit;
         private System.Windows.Forms.Label labelXCalculProduit;
         private System.Windows.Forms.ComboBox comboBoxXProduit;
@@ -704,9 +700,11 @@
         private System.Windows.Forms.NumericUpDown numericUpDownGraphiqueYmax;
         private System.Windows.Forms.NumericUpDown numericUpDownGraphiqueXmax;
         private System.Windows.Forms.Label labelGraphiqueYA;
+        private System.Windows.Forms.Button buttonEffacerGraphique;
         private System.Windows.Forms.CheckBox checkBoxGraphiqueAutoSizeY;
         private System.Windows.Forms.CheckBox checkBoxGraphiqueAutoSizeX;
-        private System.Windows.Forms.Button buttonEffacerGraphique;
+        private System.Windows.Forms.Label labelResltatAddSous;
+        private System.Windows.Forms.TextBox textBoxResultatProduit;
     }
 }
 

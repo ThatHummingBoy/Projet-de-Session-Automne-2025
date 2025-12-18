@@ -13,44 +13,64 @@ namespace Projet_de_Session.Model
         List<Tuple<decimal, decimal>> coordonnees;
         List<string> noms;
 
-        public void CalculerAddSous(int choix_operateur, int vecteur1, int vecteur2, decimal multiplicateur1, decimal multiplicateur2)
+        public ModelControlesVecteurs()
         {
+            coordonnees = new List<Tuple<decimal, decimal>>();
+            noms = new List<string>();
+        }
+
+        public Tuple<decimal, decimal> CalculerAddSous(int choix_operateur, int vecteur1, int vecteur2, decimal multiplicateur1, decimal multiplicateur2)
+        {
+            decimal nouv_i = 0;
+            decimal nouv_j = 0;
+
             if (choix_operateur == 0)
             {
-                coordonnees.Add(new Tuple<decimal, decimal>(((multiplicateur1 * coordonnees[vecteur1].Item1) + (multiplicateur2 * coordonnees[vecteur2].Item2)), 
-                    ((multiplicateur1 * coordonnees[vecteur1].Item2) + (multiplicateur2 * coordonnees[vecteur2].Item2))));
+                nouv_i = ((multiplicateur1 * coordonnees[vecteur1].Item1) + (multiplicateur2 * coordonnees[vecteur2].Item1));
+                nouv_j = ((multiplicateur1 * coordonnees[vecteur1].Item2) + (multiplicateur2 * coordonnees[vecteur2].Item2));
+                
                 noms.Add($"({noms[vecteur1]}) + ({noms[vecteur2]})");
             }
             else if (choix_operateur == 1)
             {
-                coordonnees.Add(new Tuple<decimal, decimal>(((multiplicateur1 * coordonnees[vecteur1].Item1) - (multiplicateur2 * coordonnees[vecteur2].Item2)),
-                    ((multiplicateur1 * coordonnees[vecteur1].Item2) - (multiplicateur2 * coordonnees[vecteur2].Item2))));
+                nouv_i = ((multiplicateur1 * coordonnees[vecteur1].Item1) - (multiplicateur2 * coordonnees[vecteur2].Item1));
+                nouv_j = ((multiplicateur1 * coordonnees[vecteur1].Item2) - (multiplicateur2 * coordonnees[vecteur2].Item2));
+
                 noms.Add($"({noms[vecteur1]}) - ({noms[vecteur2]})");
             }
             else if (choix_operateur == 2)
             {
-                return;
+                return new Tuple<decimal, decimal>(0, 0);
             }
+
+            coordonnees.Add(new Tuple<decimal, decimal>(nouv_j, nouv_i));
+
+            return new Tuple<decimal, decimal>(nouv_i, nouv_j);
         }
 
-        public double CalculerProduit(int choix_operateur, int vecteur1, int vecteur2)
+        public decimal CalculerProduit(int choix_operateur, int vecteur1, int vecteur2)
         {
             if (choix_operateur == 0)
             {
-                return (double)((coordonnees[vecteur1].Item1 * coordonnees[vecteur2].Item2) - (coordonnees[vecteur2].Item1 * coordonnees[vecteur1].Item2));
+                return (coordonnees[vecteur1].Item1 * coordonnees[vecteur2].Item2) - (coordonnees[vecteur2].Item1 * coordonnees[vecteur1].Item2);
             }
             else if (choix_operateur == 1)
             {
-                return (double)((coordonnees[vecteur1].Item1 * coordonnees[vecteur2].Item1) + (coordonnees[vecteur1].Item2 * coordonnees[vecteur2].Item2));
+                return (coordonnees[vecteur1].Item1 * coordonnees[vecteur2].Item1) + (coordonnees[vecteur1].Item2 * coordonnees[vecteur2].Item2);
             }
             else
-                return double.NaN;
+                return 0;
         }
 
         public void AjouterVecteur(string nom, decimal coordonne_i, decimal coordonne_j)
         {
             coordonnees.Add(new Tuple<decimal, decimal>(coordonne_i, coordonne_j));
             noms.Add(nom);
+        }
+
+        public string LectureDernierVecteur()
+        {
+            return noms.Last();
         }
     }
 }
